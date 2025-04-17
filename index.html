@@ -1,120 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gaia's Nexus</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>theme e</title>
 
-    body {
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      overflow-x: hidden;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
-    header {
-      margin-top: 2rem;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
 
-    .avatar {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid #0ff;
-      box-shadow: 0 0 20px #0ff;
-      animation: pulse 3s infinite;
-    }
+<style>
 
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+body{
+background-color: #d7c5e0;
+background-image: url('https://i.imgur.com/um7VW5i.jpg');
+background-repeat: no-repeat;
+background-size: 100%;
+background-attachment: fixed;
+color: #23262e;
+font-family: 'Cormorant Garamond', serif;
+}
 
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 1rem;
-      color: #00f7ff;
-    }
+#all{
+width: 460px;
+margin: 0 auto;
+}
 
-    p {
-      font-size: 1.2rem;
-      margin: 1rem auto;
-      max-width: 600px;
-      color: #ccc;
-    }
+img{
+opacity: 0.9;
+}
 
-    .links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
+#header{
+width: 460px;
+margin: 15px 0px 7px 0px;
+}
 
-    .links a {
-      background: #0ff;
-      color: #000;
-      padding: 0.7rem 1.2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
-      box-shadow: 0 0 10px #0ff;
-    }
+h1{
+font-family: 'Special Elite', serif;
+text-align: center;
+font-size: 45px;
+font-weight: normal;
+color: #fff;
+margin: 0px;
+}
 
-    .links a:hover {
-      background: #00c2c2;
-    }
+#nav{
+background-color: #fff;
+width: 460px;
+margin-bottom: 10px;
+}
 
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
+ul{
+text-align: center;
+padding: 0px;
+margin: 0px;
+}
 
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 20px #0ff;
-      }
-      50% {
-        box-shadow: 0 0 40px #0ff;
-      }
-      100% {
-        box-shadow: 0 0 20px #0ff;
-      }
-    }
-  </style>
+li{
+list-style-type: none;
+display: inline;
+padding-left: 5px;
+}
+
+a{
+text-decoration: none;
+color: #657346;
+}
+
+a:visited{
+color: #657346;
+}
+
+a:hover{
+font-style: italic;
+font-weight: bold;
+}
+
+a:active{
+font-style: italic;
+font-weight: bold;
+}
+
+#main{
+background-color: #fff;
+width: 430px;
+padding: 15px;
+text-align: justify;
+}
+
+::-webkit-scrollbar{
+width: 6px; 
+}
+    
+::-webkit-scrollbar-track{
+background-color: #1a1c16;
+}
+
+::-webkit-scrollbar-thumb{
+background-color: #43473c;
+}
+
+#credit{
+font-size: 12px;
+position: fixed;
+bottom: 0;
+right: 0;
+}
+
+#credit a{
+text-decoration: none;
+color: #fff;
+}
+
+#credit a:visited{
+color: #fff;
+}
+
+#credit a:hover{
+font-style: italic;
+font-weight: bold;
+}
+
+#credit a:active{
+font-style: italic;
+font-weight: bold;
+}
+
+</style>
+
 </head>
-<body>
-  <header>
-    <div class="avatar">
-      <img src="https://images.unsplash.com/photo-1549921296-3a65c11b74d8?auto=format&fit=crop&w=180&q=80" alt="Avatar" />
-    </div>
-    <h1>Gaia</h1>
-    <p>A digital wanderer weaving fragments of code, memory, and meaning.</p>
-    <div class="links">
-      <a href="https://github.com/">GitHub</a>
-      <a href="https://twitter.com/">Twitter</a>
-      <a href="mailto:someone@example.com">Email Me</a>
-    </div>
-  </header>
-  <footer>
-    <p>© 2025 Gaia's Nexus. Made with stars and scripts.</p>
-  </footer>
-</body>
-</html>
 
+<body>
+
+<div id="all">
+
+<div id="header">
+<h1>Title Here</h1>
+</div>
+
+<div id="nav">
+<ul>
+<li><a href="URL HERE">home</a></li>
+<li><a href="URL HERE">about</a></li>
+<li><a href="URL HERE">blog</a></li>
+<li><a href="URL HERE">gallery</a></li>
+<li><a href="URL HERE">links</a></li>
+<li><a href="URL HERE">misc</a></li>
+</ul>
+</div>
+
+<div id="main">
+
+<img src="https://i.imgur.com/xTBF6tl.jpg" style="width:430px;">
+
+<p style="margin:0px;">Morbi eleifend, turpis nec tristique iaculis, elit sem aliquam nisl, ut facilisis mauris orci id lectus. Sed luctus ante et ipsum accumsan molestie. Fusce vitae massa vel nunc tincidunt gravida ac eu odio. Mauris vitae massa magna. Aenean vel purus felis. Phasellus feugiat congue dolor eu fringilla. Maecenas vitae dui quis justo tempor tristique id sit amet sapien. Nulla dapibus convallis pharetra. Proin non lorem pretium.</p>
+
+</div>
+
+</div>
+
+<div id="credit"><a href="https://repth.neocities.org/index.html">©repth</a></div>
+
+</body>
+
+</html>
