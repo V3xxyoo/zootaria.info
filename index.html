@@ -1,159 +1,151 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Potafrog</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potafrog</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #d7c5e0;
+      background-image: url('https://i.imgur.com/um7VW5i.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-attachment: fixed;
+      color: #23262e;
+      font-family: 'Cormorant Garamond', serif;
+      animation: fadeIn 1.5s ease-in;
+    }
 
-<style>
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
 
-body{
-background-color: #d7c5e0;
-background-image: url('https://i.imgur.com/um7VW5i.jpg');
-background-repeat: no-repeat;
-background-size: 100%;
-background-attachment: fixed;
-color: #23262e;
-font-family: 'Cormorant Garamond', serif;
-}
+    #all {
+      max-width: 90%;
+      width: 460px;
+      margin: 0 auto;
+    }
 
-#all{
-width: 460px;
-margin: 0 auto;
-}
+    img {
+      opacity: 0.9;
+    }
 
-img{
-opacity: 0.9;
-}
+    #header {
+      width: 100%;
+      margin: 15px 0px 7px 0px;
+    }
 
-#header{
-width: 460px;
-margin: 15px 0px 7px 0px;
-}
+    h1 {
+      font-family: 'Special Elite', serif;
+      text-align: center;
+      font-size: 45px;
+      font-weight: normal;
+      color: #fff;
+      margin: 0px;
+    }
 
-h1{
-font-family: 'Special Elite', serif;
-text-align: center;
-font-size: 45px;
-font-weight: normal;
-color: #fff;
-margin: 0px;
-}
+    #nav {
+      background-color: #fff;
+      width: 100%;
+      margin-bottom: 10px;
+    }
 
-#nav{
-background-color: #fff;
-width: 460px;
-margin-bottom: 10px;
-}
+    ul {
+      text-align: center;
+      padding: 0px;
+      margin: 0px;
+    }
 
-ul{
-text-align: center;
-padding: 0px;
-margin: 0px;
-}
+    li {
+      list-style-type: none;
+      display: inline;
+      padding-left: 5px;
+    }
 
-li{
-list-style-type: none;
-display: inline;
-padding-left: 5px;
-}
+    a {
+      text-decoration: none;
+      color: #657346;
+      transition: all 0.3s ease;
+    }
 
-a{
-text-decoration: none;
-color: #657346;
-}
+    a:hover {
+      font-style: italic;
+      font-weight: bold;
+      text-shadow: 0 0 4px #657346;
+    }
 
-a:visited{
-color: #657346;
-}
+    a:active {
+      font-style: italic;
+      font-weight: bold;
+    }
 
-a:hover{
-font-style: italic;
-font-weight: bold;
-}
+    #main {
+      background-color: #fff;
+      width: 430px;
+      padding: 15px;
+      text-align: justify;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
 
-a:active{
-font-style: italic;
-font-weight: bold;
-}
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
 
-#main{
-background-color: #fff;
-width: 430px;
-padding: 15px;
-text-align: justify;
-}
+    ::-webkit-scrollbar-track {
+      background-color: #1a1c16;
+    }
 
-::-webkit-scrollbar{
-width: 6px; 
-}
-    
-::-webkit-scrollbar-track{
-background-color: #1a1c16;
-}
+    ::-webkit-scrollbar-thumb {
+      background-color: #43473c;
+    }
 
-::-webkit-scrollbar-thumb{
-background-color: #43473c;
-}
+    #credit {
+      font-size: 12px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      padding: 5px 10px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 8px 0 0 0;
+    }
 
-#credit{
-font-size: 12px;
-position: fixed;
-bottom: 0;
-right: 0;
-}
+    #credit a {
+      text-decoration: none;
+      color: #fff;
+    }
 
-#credit a{
-text-decoration: none;
-color: #fff;
-}
+    #credit a:hover {
+      font-style: italic;
+      font-weight: bold;
+    }
 
-#credit a:visited{
-color: #fff;
-}
-
-#credit a:hover{
-font-style: italic;
-font-weight: bold;
-}
-
-#credit a:active{
-font-style: italic;
-font-weight: bold;
-}
-
-</style>
-
+    #credit a:active {
+      font-style: italic;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
+  <div id="all">
+    <div id="header">
+      <h1>Introduction</h1>
+    </div>
 
-<div id="all">
+    <div id="main">
+      <img src="https://i.imgur.com/xTBF6tl.jpg" style="width:100%;">
+      <p style="margin: 0px;">Heya! My name's Potatofrog. I am from Japan, somewhere in the east. I am learning HTML and I am 19 years of age. Sorry if my English is bad — I am still learning. :3</p>
+    </div>
+  </div>
 
-<div id="header">
-<h1>Introduction</h1>
-</div>
-
-<div id="main">
-
-<img src="https://i.imgur.com/xTBF6tl.jpg" style="width:430px;">
-
-<p style="margin:0px;"Heya! my names potatofrog. I am from Japan, somewhere in the east. I am learning HTML and I am 19 years of age. Sorry if my english is bad I am still learning. :3"</p>
-
-</div>
-
-</div>
-
-<div id="credit"><a href="https://repth.neocities.org/index.html">©repth</a></div>
-
+  <div id="credit"><a href="https://repth.neocities.org/index.html">©repth</a></div>
 </body>
-
 </html>
