@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gaia's Nexus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      margin-top: 2rem;
+    }
+
+    .avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #0ff;
+      box-shadow: 0 0 20px #0ff;
+      animation: pulse 3s infinite;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 1rem;
+      color: #00f7ff;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 1rem auto;
+      max-width: 600px;
+      color: #ccc;
+    }
+
+    .links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .links a {
+      background: #0ff;
+      color: #000;
+      padding: 0.7rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      box-shadow: 0 0 10px #0ff;
+    }
+
+    .links a:hover {
+      background: #00c2c2;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 20px #0ff;
+      }
+      50% {
+        box-shadow: 0 0 40px #0ff;
+      }
+      100% {
+        box-shadow: 0 0 20px #0ff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="avatar">
+      <img src="https://images.unsplash.com/photo-1549921296-3a65c11b74d8?auto=format&fit=crop&w=180&q=80" alt="Avatar" />
+    </div>
+    <h1>Gaia</h1>
+    <p>A digital wanderer weaving fragments of code, memory, and meaning.</p>
+    <div class="links">
+      <a href="https://github.com/">GitHub</a>
+      <a href="https://twitter.com/">Twitter</a>
+      <a href="mailto:someone@example.com">Email Me</a>
+    </div>
+  </header>
+  <footer>
+    <p>© 2025 Gaia's Nexus. Made with stars and scripts.</p>
+  </footer>
+</body>
+</html>
 
