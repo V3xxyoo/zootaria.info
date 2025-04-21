@@ -1,89 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Message.</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: black;
-      overflow: hidden;
-      font-family: 'Courier New', monospace;
-      color: white;
-    }
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Site Title</title>
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
+    <!-- Below is a link to your stylesheet, which should be located within your css folder -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-    .text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 1;
-      font-size: 1.2em;
-      animation: pulseText 5s infinite;
-      white-space: pre-line;
-    }
+  </head>
+  <body>
 
-    @keyframes pulseText {
-      0%, 100% { opacity: 0.2; }
-      50% { opacity: 1; }
-    }
+    <!--
+      A DIV is a major structural element representing a division or a section in HTML,
+      allowing you to group together other elements within it. If you have a panel,
+      or a group of elements that pertain to one section of the page, wrap them in
+      a div like this.
+    -->
+    <div id="container">
+      <div class="myDiv">
 
-    .forehead-point {
-      position: absolute;
-      top: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      height: 10px;
-      background: radial-gradient(circle, white, transparent);
-      border-radius: 50%;
-      box-shadow: 0 0 30px white;
-      z-index: 2;
-    }
-  </style>
-</head>
-<body>
-  <canvas id="spiral"></canvas>
-  <div class="forehead-point"></div>
-  <div class="text">
-   We're working on a project on Discord, let's go! ;)
-  </div>
+        <!--
+          An H1 serves as the main title for the page. It is not the site title, which you
+          will want to update in the head section of your HTML.
 
-  <script>
-    const canvas = document.getElementById("spiral");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+          An H1 should reflect what THIS page is about, and it is very important to adhere to
+          this standard for search engines.
+        -->
+        <h1>My Page Title</h1>
 
-    let t = 0;
-    function drawSpiral() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.translate(canvas.width / 2, canvas.height / 2);
-      for (let i = 0; i < 300; i++) {
-        const angle = 0.1 * i;
-        const x = (1 + 5 * angle) * Math.cos(angle + t);
-        const y = (1 + 5 * angle) * Math.sin(angle + t);
-        ctx.fillStyle = `hsla(${(angle * 50) % 360}, 100%, 50%, 0.2)`;
-        ctx.beginPath();
-        ctx.arc(x, y, 3, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
-      t += 0.01;
-      requestAnimationFrame(drawSpiral);
-    }
-    drawSpiral();
-  </script>
-</body>
+        <!--
+          An IMG tag will allow you to display an image, either on your computer, or from
+          a url.
+
+          The alt attribute is important to include on every image. It should describe what the
+          picture is, and allows those using screen readers, or those who don't allow images to
+          display, to understand your site better. Search engines will penalize you if you
+          exclude them as well.
+
+          You can also use the site, lorempixel, to display random images. It can be great for
+          prototyping your design
+
+          <img src="http://lorempixel.com/400/200" alt="My random image"/>
+        -->
+        <img src="img/Peggy.jpg" alt="A picture of my grumpy cat, Peggy"/>
+
+        <!--
+          A P tag designates a paragraph of text. It will allow you to automatically indent sections,
+          and will format the text correctly for content.
+        -->
+        <p>
+          This is a paragraph. It will have line breaks if there is enough text. This is a fundamental element for creating page content.
+          Sometimes you will need <strong>bold</strong> text, and sometimes you will need <em>italicized</em> text.
+        </p>
+      </div>
+
+      <div class="myDiv">
+        <h2>My Second Most Important Heading</h2>
+
+        <!--
+          A UL tag designates an UNORDERED LIST. You can fill these with <li> elements, which
+          represent LIST ITEMS, which by default will be displayed with bullet points.
+        -->
+        <ul>
+          <li>An unordered list item</li>
+          <li>An unordered list item</li>
+          <li>An unordered list item</li>
+        </ul>
+
+        <!--
+          An OL tag designates an ORDERED LIST. This is similar to a UL, but will be shown with
+          numbers to their left instead of bullet points.
+        -->
+        <ol>
+          <li>My first list item</li>
+          <li>My second list item</li>
+          <li>My third list item</li>
+        </ol>
+      </div>
+    </div>
+
+    <!--
+      Below we link to a javascript file, located within our js folder
+
+      It is important to include your scripts here at the bottom of your body, allowing the
+      entire page to load before calling any of your javascript methods. It also speeds up page load times.
+    -->
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
 </html>
