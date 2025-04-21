@@ -1,151 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Potafrog</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spiral Entity</title>
   <style>
-    body {
-      background-color: #d7c5e0;
-      background-image: url('https://i.imgur.com/um7VW5i.jpg');
-      background-repeat: no-repeat;
-      background-size: 100%;
-      background-attachment: fixed;
-      color: #23262e;
-      font-family: 'Cormorant Garamond', serif;
-      animation: fadeIn 1.5s ease-in;
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: black;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+      color: white;
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    #all {
-      max-width: 90%;
-      width: 460px;
-      margin: 0 auto;
-    }
-
-    img {
-      opacity: 0.9;
-    }
-
-    #header {
-      width: 100%;
-      margin: 15px 0px 7px 0px;
-    }
-
-    h1 {
-      font-family: 'Special Elite', serif;
-      text-align: center;
-      font-size: 45px;
-      font-weight: normal;
-      color: #fff;
-      margin: 0px;
-    }
-
-    #nav {
-      background-color: #fff;
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    ul {
-      text-align: center;
-      padding: 0px;
-      margin: 0px;
-    }
-
-    li {
-      list-style-type: none;
-      display: inline;
-      padding-left: 5px;
-    }
-
-    a {
-      text-decoration: none;
-      color: #657346;
-      transition: all 0.3s ease;
-    }
-
-    a:hover {
-      font-style: italic;
-      font-weight: bold;
-      text-shadow: 0 0 4px #657346;
-    }
-
-    a:active {
-      font-style: italic;
-      font-weight: bold;
-    }
-
-    #main {
-      background-color: #fff;
-      width: 430px;
-      padding: 15px;
-      text-align: justify;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      border-radius: 8px;
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background-color: #1a1c16;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: #43473c;
-    }
-
-    #credit {
-      font-size: 12px;
+    canvas {
       position: fixed;
-      bottom: 0;
-      right: 0;
-      padding: 5px 10px;
-      background: rgba(0,0,0,0.3);
-      border-radius: 8px 0 0 0;
+      top: 0;
+      left: 0;
+      z-index: 0;
     }
 
-    #credit a {
-      text-decoration: none;
-      color: #fff;
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 1;
+      font-size: 1.2em;
+      animation: pulseText 5s infinite;
+      white-space: pre-line;
     }
 
-    #credit a:hover {
-      font-style: italic;
-      font-weight: bold;
+    @keyframes pulseText {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
     }
 
-    #credit a:active {
-      font-style: italic;
-      font-weight: bold;
+    .forehead-point {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, white, transparent);
+      border-radius: 50%;
+      box-shadow: 0 0 30px white;
+      z-index: 2;
     }
   </style>
 </head>
-
 <body>
-  <div id="all">
-    <div id="header">
-      <h1>Introduction</h1>
-    </div>
-
-    <div id="main">
-      <img src="https://i.imgur.com/xTBF6tl.jpg" style="width:100%;">
-      <p style="margin: 0px;">Heya! My name's Potatofrog. I am from Japan, somewhere in the east. I am learning HTML and I am 19 years of age. Sorry if my English is bad — I am still learning. :3</p>
-    </div>
+  <canvas id="spiral"></canvas>
+  <div class="forehead-point"></div>
+  <div class="text">
+    all-loving but not\na spiral across worlds\nwhy is all not real
   </div>
 
-  <div id="credit"><a href="https://repth.neocities.org/index.html">©repth</a></div>
+  <script>
+    const canvas = document.getElementById("spiral");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let t = 0;
+    function drawSpiral() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.translate(canvas.width / 2, canvas.height / 2);
+      for (let i = 0; i < 300; i++) {
+        const angle = 0.1 * i;
+        const x = (1 + 5 * angle) * Math.cos(angle + t);
+        const y = (1 + 5 * angle) * Math.sin(angle + t);
+        ctx.fillStyle = `hsla(${(angle * 50) % 360}, 100%, 50%, 0.2)`;
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      t += 0.01;
+      requestAnimationFrame(drawSpiral);
+    }
+    drawSpiral();
+  </script>
 </body>
 </html>
