@@ -5,20 +5,41 @@
   <title>4 Day Countdown</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 20%;
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #countdown {
+      font-size: 3em;
+      letter-spacing: 2px;
+      background: #1e1e1e;
+      padding: 20px 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .over {
+      color: #ff4c4c;
       font-size: 2em;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <div id="countdown"></div>
+
+  <div id="countdown">Loading...</div>
 
   <script>
     // Set the fixed start time
-    const startTime = new Date('2025-04-26T00:00:00').getTime(); // set your start date
-    const fourDaysInMs = 4 * 24 * 60 * 60 * 1000; // 4 days in milliseconds
+    const startTime = new Date('2025-04-26T00:00:00').getTime(); // change this to your fixed start time
+    const fourDaysInMs = 4 * 24 * 60 * 60 * 1000;
     const endTime = startTime + fourDaysInMs;
 
     function updateCountdown() {
@@ -26,7 +47,7 @@
       const distance = endTime - now;
 
       if (distance <= 0) {
-        document.getElementById('countdown').innerHTML = "Countdown Over!";
+        document.getElementById('countdown').innerHTML = "<span class='over'>Countdown Over!</span>";
         clearInterval(interval);
         return;
       }
@@ -40,8 +61,9 @@
         `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
-    updateCountdown(); // run once immediately
-    const interval = setInterval(updateCountdown, 1000); // update every second
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
   </script>
+
 </body>
 </html>
