@@ -72,6 +72,7 @@
         #noButton {
             background-color: #ff4757;
             border-color: #ff4757;
+            position: absolute;
         }
 
         #noButton:hover {
@@ -120,7 +121,7 @@
         </div>
         <div class="buttons">
             <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
-            <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
+            <button class="btn" id="noButton">No</button>
         </div>
     </div>
 
@@ -137,14 +138,29 @@
             document.getElementById("yesContainer").classList.remove("hidden");
         }
 
-        function moveButton() {
-            const button = document.getElementById("noButton");
-            const randomX = Math.floor(Math.random() * (window.innerWidth - 100));
-            const randomY = Math.floor(Math.random() * (window.innerHeight - 50));
-            button.style.position = "absolute";
-            button.style.left = randomX + "px";
-            button.style.top = randomY + "px";
-        }
+        const noButton = document.getElementById("noButton");
+
+        document.addEventListener("mousemove", function(e) {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            const rect = noButton.getBoundingClientRect();
+            const btnX = rect.left + rect.width / 2;
+            const btnY = rect.top + rect.height / 2;
+
+            const dist = Math.hypot(mouseX - btnX, mouseY - btnY);
+
+            if (dist < 120) {
+                const offsetX = (Math.random() - 0.5) * 300;
+                const offsetY = (Math.random() - 0.5) * 300;
+
+                const newX = Math.min(window.innerWidth - 100, Math.max(0, btnX + offsetX));
+                const newY = Math.min(window.innerHeight - 50, Math.max(0, btnY + offsetY));
+
+                noButton.style.left = newX + "px";
+                noButton.style.top = newY + "px";
+            }
+        });
     </script>
 </body>
 </html>
